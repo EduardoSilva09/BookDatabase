@@ -3,6 +3,7 @@
 pragma solidity ^0.8.12;
 
 contract BookDatabase {
+    
     struct Book {
         string title;
         uint16 year;
@@ -12,6 +13,11 @@ contract BookDatabase {
 
     uint32 private nextId = 0;
     mapping(uint32 => Book) public books;
+    address private immutable owner;
+
+    constructor() {
+        owner = msg.sender;
+    }
 
     function compare(string memory str1, string memory str2)
         private
@@ -42,7 +48,7 @@ contract BookDatabase {
         }
         if (oldbook.pages != newBook.pages && newBook.pages > 0) {
             books[id].pages = newBook.pages;
-        }        
+        }
         if (
             !compare(oldbook.author, newBook.author) &&
             !compare(oldbook.author, "")
@@ -50,7 +56,13 @@ contract BookDatabase {
             books[id].author = newBook.author;
         }
     }
-     function removeBook(uint32 id) public {
+
+    function removeBook(uint32 id) public restricted {
         delete books[id];
-     }
+    }
+
+    modifier restricted() {
+        require(owner == msg.sender, "You don't have permission.");
+        _;
+    }
 }

@@ -38,7 +38,7 @@ function editBook(uint32 id, Book memory newBook) public
 ```solidity
 function removeBook(uint32 id) public restricted
 ```
-- Removes the book with the given id from the database.
+- Removes the book with the given `id` from the database.
 
 ## Modifiers
 

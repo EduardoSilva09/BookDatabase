@@ -1,0 +1,18 @@
+{
+  "name": "bookdatabase",
+  "description": "This Solidity smart contract (`BookDatabase`) manages a collection of books on the blockchain. It allows users to add, edit, and remove books from the database. Each book is represented by its title, publication year, number of pages, and author.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },  
+  "scripts": {
+    "test": "npx hardhat test"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "hardhat": "^2.22.5"
+  },
+  "author": "EduardoSilva09",
+  "license": "MIT"
+}

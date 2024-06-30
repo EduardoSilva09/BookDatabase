@@ -57,3 +57,6 @@ To interact with this contract:
 
 ## Acknowledgments
 - This contract was inspired by the need for decentralized book management systems.
+
+### Disclaimer
+This contract is provided as-is with no warranties or guarantees. Use it at your own risk.

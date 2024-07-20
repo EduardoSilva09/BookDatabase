@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 
-pragma solidity ^0.8.12;
+pragma solidity ^0.8.20;
 
 contract BookDatabase {
     
@@ -14,6 +14,7 @@ contract BookDatabase {
     uint32 private nextId = 0;
     mapping(uint32 => Book) public books;
     address private immutable owner;
+    uint256 public count;
 
     constructor() {
         owner = msg.sender;
@@ -33,6 +34,7 @@ contract BookDatabase {
     function addBook(Book memory newBook) public {
         nextId++;
         books[nextId] = newBook;
+        count++;
     }
 
     function editBook(uint32 id, Book memory newBook) public {
@@ -58,7 +60,10 @@ contract BookDatabase {
     }
 
     function removeBook(uint32 id) public restricted {
-        delete books[id];
+        if(books[id].year > 0){
+            delete books[id];
+            count--;
+        }
     }
 
     modifier restricted() {

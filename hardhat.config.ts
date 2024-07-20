@@ -21,6 +21,9 @@ const config: HardhatUserConfig = {
         mnemonic: process.env.INFURA_SECRET
       }
     }
+  },
+  etherscan: {
+    apiKey: process.env.API_KEY
   }
 };
 

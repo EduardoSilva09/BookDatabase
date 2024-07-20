@@ -5,8 +5,10 @@
   "main": "index.js",
   "directories": {
     "test": "test"
-  },  
+  },
   "scripts": {
+    "start": "npx hardhat node",
+    "deploy": "npx hardhat ignition deploy ignition/modules/BookDatabase.ts --network local",
     "test": "npx hardhat test"
   },
   "devDependencies": {
@@ -14,5 +16,8 @@
     "hardhat": "^2.22.5"
   },
   "author": "EduardoSilva09",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.4.5"
+  }
 }
